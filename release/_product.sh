@@ -49,7 +49,7 @@ function build_product {
 
 	ant deploy
 
-	ant deploy-portal-license-enterprise-app
+	ant -v deploy-portal-license-enterprise-app
 
 	lc_cd "${_PROJECTS_DIR}"/liferay-portal-ee/modules
 
