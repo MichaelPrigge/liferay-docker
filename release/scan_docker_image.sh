@@ -86,6 +86,13 @@ function _notify_info_sec {
 }
 
 function _scan_docker_image {
+	if [ "$(get_release_output)" == "nightly" ]
+	then
+		lc_log INFO "Skipping Prisma Cloud scan for nightly releases."
+
+		return "${LIFERAY_COMMON_EXIT_CODE_SKIPPED}"
+	fi
+
 	if [ -z "${LIFERAY_DOCKER_IMAGE_NAME}" ]
 	then
 		lc_log ERROR "\${LIFERAY_DOCKER_IMAGE_NAME} is undefined."
